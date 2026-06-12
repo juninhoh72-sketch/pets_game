@@ -9,7 +9,7 @@
             --card-bg: rgba(255, 255, 255, 0.95);
             --card-border: #000000;
             --text-color: #000000;
-            --select-color: #007bff; /* Azul como solicitado */
+            --select-color: #007bff; 
             --correct-color: #00dd00;
             --incorrect-color: #ff0000;
         }
@@ -98,21 +98,44 @@
         }
 
         @media screen and (orientation: portrait) {
+            body {
+                padding: 10px 10px 40px 10px; /* Adicionado padding inferior de segurança para tablets/celulares */
+            }
             header { text-align: center; margin-bottom: 15px; }
             h1 { margin: 10px 0; font-size: 2.2rem; }
             button { padding: 10px 24px; font-size: 1.1rem; }
             button svg { width: 20px; height: 20px; }
-            .game-board { grid-template-columns: repeat(2, min(40vw, 25vh)); grid-auto-rows: min(40vw, 25vh); gap: 15px; margin-top: 20px; }
-            .card-text { font-size: clamp(1.2rem, 5vw, 2.5rem); }
+            .game-board { 
+                /* Redução sutil na altura (de 25vh para 23vh) para compactar a grade e garantir espaço livre embaixo */
+                grid-template-columns: repeat(2, min(42vw, 23vh)); 
+                grid-auto-rows: min(42vw, 23vh); 
+                gap: 15px; 
+                margin-top: 15px; 
+                margin-bottom: 30px; /* Margem extra de base */
+            }
+            .card-text { font-size: clamp(1.2rem, 5vw, 2.3rem); }
         }
 
         @media screen and (orientation: landscape) {
-            body { padding: 5px 10px; justify-content: flex-start; }
-            header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 10px; }
+            body { 
+                padding: 5px 10px 40px 10px; /* Mantido o espaçamento inferior do landscape */
+                justify-content: flex-start; 
+            }
+            header { 
+                display: flex; justify-content: space-between; align-items: center; 
+                margin-bottom: 5px; padding: 0 10px; 
+            }
             h1 { margin: 0; font-size: 1.8rem; text-align: left; }
             button { padding: 6px 16px; font-size: 0.95rem; }
-            .game-board { grid-template-columns: repeat(6, min(14vw, 45vh)); grid-auto-rows: min(14vw, 45vh); gap: 10px; margin-top: 10px; }
-            .card-text { font-size: clamp(0.9rem, 1.8vw, 2rem); padding: 2px; }
+            
+            .game-board { 
+                grid-template-columns: repeat(3, min(28vw, 36vh)); 
+                grid-auto-rows: min(28vw, 36vh); 
+                gap: 15px; 
+                margin-top: 5px; 
+                margin-bottom: 20px;
+            }
+            .card-text { font-size: clamp(0.9rem, 3.5vh, 2rem); padding: 2px; }
         }
 
         .card {
